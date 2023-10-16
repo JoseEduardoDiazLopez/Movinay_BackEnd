@@ -2,5 +2,5 @@ const express = require ('express');
 const router = express.Router();
 const citaController = require('../controllers/citaController.js');
 
-router.post('/', citaController);
+router.post('/citas', citaController);
 module.exports = router;
