@@ -1,7 +1,7 @@
 const express = require('express');
 const conectarDB = require('./config/db.js');
 const cors = require("cors");
-
+const PORT = process.env.PORT || 3000;
 //Creamos el servidor
 const app = express();
 //Conectamos a la base datos
@@ -9,13 +9,10 @@ conectarDB();
 app.use(cors())
 app.use(express.json());
 
-
-app.listen(4000, ()=> {
-    console.log('El servidor está corriendo')
-})
-
 app.get('/prueba', (req,res) =>{
     res.send('API MONGO');
 })
 
-app.use('/citas', require('./routes/cita'));
+app.use('/api/citas', require('./routes/cita')); // Manda a llamar la API a MongoDB <get,post>
+
+app.listen(PORT, () => {console.log(`Server encendido en http://localhost:${PORT}`);});

@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 const ReferenciasSchema = new Schema({
-    idReferencia: Number,
-    Fecha: Date,
-    numReferencia: String,
-    idUsuario: Number
+    idReferencia: {type:Number},
+    Fecha: {type:Date , default: Date.now},
+    numReferencia: {type:String},
+    idUsuario: {type:Number}
   });
   module.exports = mongoose.model('Referencias', ReferenciasSchema);

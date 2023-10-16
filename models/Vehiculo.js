@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 const VehiculoSchema = new Schema({
-    idUsuario: Number,
-    idVehiculo: Number,
-    TipoVehiculo: String,
-    Modelo: String,
-    Color: String,
-    Placas: String
+    idUsuario: {type:Number},
+    idVehiculo: {type:Number},
+    TipoVehiculo: {type:String},
+    Modelo: {type:String},
+    Color: {type:String},
+    Placas: {type:String}
   });
   module.exports = mongoose.model('Vehiculo', VehiculoSchema);

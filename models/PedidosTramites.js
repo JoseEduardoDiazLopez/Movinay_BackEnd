@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 const PedidosTramitesSchema = new Schema({
-    idTramite: Number,
-    numTramite: Number,
-    fechaTramite: Date,
-    idUsuario: Number
+    idTramite: {type:Number},
+    numTramite: {type:Number},
+    fechaTramite: {type: Date, default: Date.now},
+    idUsuario: {type:Number}
   });
   module.exports = mongoose.model('Pedidos', PedidosTramitesSchema);
