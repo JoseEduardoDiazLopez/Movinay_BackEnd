@@ -1,16 +1,22 @@
-const express = require('express');
-const router = express.Router();
-const Cita = require('../models/Cita'); 
+const Citas = require("../models/Cita");
 
-//(POST)
-router.post('/citas', async (req, res) => {
-  try {
-    const nuevaCita = new Cita(req.body);
-    const citaGuardada = await nuevaCita.save();
-    res.json(citaGuardada);
-  } catch (error) {
-    res.status(500).json({ error: 'No se pudo crear la cita' });
+exports.crearCita = async(req,res) =>{
+  try{
+    let cita;
+    cita = new Citas(req.body);
+    await cita.save()
+    res.send(cita);
+  }catch(error){
+    console.log(error);
+    res.status(500).send('Hubo un error al colocar citas.')
   }
-});
-
-module.exports = router;
+}// get cita
+exports.obtenerCita = async (req,res) =>{
+  try{
+      const citas = await Citas.find();
+      res.json(citas);
+  }catch(error){
+      console.log(error);
+      res.status(500).send('Hubo un error al obtener citas.')
+  }
+}

@@ -18,12 +18,4 @@ app.get('/prueba', (req,res) =>{
     res.send('API MONGO');
 })
 
-app.post('/citas', async (req, res) => {
-    try {
-      const nuevaCita = new Cita(req.body);
-      const citaGuardada = await nuevaCita.save();
-      res.json(citaGuardada);
-    } catch (error) {
-      res.status(500).json({ error: 'No se pudo crear la cita' });
-    }
-  });
+app.use('/citas', require('./routes/cita'));
