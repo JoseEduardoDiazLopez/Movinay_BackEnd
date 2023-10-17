@@ -1,7 +1,11 @@
+// Constantes
+
 const express = require('express');
 const conectarDB = require('./config/db.js');
 const cors = require("cors");
 const PORT = process.env.PORT || 3000;
+
+
 //Creamos el servidor
 const app = express();
 //Conectamos a la base datos
