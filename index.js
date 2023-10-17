@@ -18,5 +18,8 @@ app.get('/prueba', (req,res) =>{
 })
 
 app.use('/api/citas', require('./routes/cita')); // Manda a llamar la API a MongoDB <get,post>
+app.put('/api/citas/:id', (req, res) => {
+    console.log('req.params.id', req.params.id);
+});
 
 app.listen(PORT, () => {console.log(`Server encendido en http://localhost:${PORT}`);});
