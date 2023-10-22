@@ -22,7 +22,7 @@ exports.login = async (req, res) => {
   }
   if (user.password === password) {
     const token = jwt.sign({ username }, 'secret_key');
-    return res.json({ token });
+    return res.json({ token: "Se inicio sesión."});
   } else {
     return res.status(401).json({ error: 'Contraseña incorrecta, ingrese la correcta.' });
   }
