@@ -39,7 +39,7 @@ exports.login = async (req, res) => {
       expiresIn: '1h',
     });
 
-    res.status(200).json({ token : 'logueado con éxito' });
+    res.status(200).json({ token : 'logueado con éxito.' });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
