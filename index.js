@@ -24,5 +24,5 @@ app.put('/api/citas/:id', (req, res) => {console.log('req.params.id', req.params
 app.use('/api/denuncias', require('./routes/denuncia')); // Manda a llamar la API a MongoDB <get,post>
 app.put('/api/denuncias/:id', (req, res) => {console.log('req.params.id', req.params.id);});
 
-app.use('/api/autenticacion', require('./routes/usuario'));
+//app.use('/api/autenticacion', require('./routes/usuario'));
 app.listen(PORT, () => {console.log(`Server encendido en http://localhost:${PORT}`);});
