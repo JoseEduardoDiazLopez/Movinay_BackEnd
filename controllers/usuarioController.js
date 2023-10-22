@@ -24,6 +24,6 @@ exports.login = async (req, res) => {
     const token = jwt.sign({ username }, 'secret_key');
     return res.json({ token });
   } else {
-    return res.status(401).json({ error: 'Contraseña incorrecta' });
+    return res.status(401).json({ error: 'Contraseña incorrecta, ingrese la correcta.' });
   }
 };
