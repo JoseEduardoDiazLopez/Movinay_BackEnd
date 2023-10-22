@@ -3,6 +3,7 @@
 const express = require('express');
 const conectarDB = require('./config/db.js');
 const cors = require("cors");
+const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 3000;
 
 
@@ -23,4 +24,5 @@ app.put('/api/citas/:id', (req, res) => {console.log('req.params.id', req.params
 app.use('/api/denuncias', require('./routes/denuncia')); // Manda a llamar la API a MongoDB <get,post>
 app.put('/api/denuncias/:id', (req, res) => {console.log('req.params.id', req.params.id);});
 
+app.use('/api/auth', require('./routes/usuario'));
 app.listen(PORT, () => {console.log(`Server encendido en http://localhost:${PORT}`);});
