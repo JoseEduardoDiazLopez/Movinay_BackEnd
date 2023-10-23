@@ -3,7 +3,8 @@ const CitaSchema = new mongoose.Schema({
     idCita: {type: Number},
     Fecha: {type: String},
     Hora: {type: String},
-    numTramite: {type: String},
+    Modulo: {type: String},
+    TipoTramite: {type: String},
     idUsuario: {type: Number},
     idOficina: {type: Number}
   });
