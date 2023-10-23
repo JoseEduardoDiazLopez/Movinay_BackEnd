@@ -10,7 +10,8 @@ exports.crearCita = async(req,res) =>{
     console.log(error);
     res.status(500).send('Hubo un error al colocar citas.')
   }
-}// get cita
+}// crear cita
+
 exports.obtenerCita = async (req,res) =>{
   try{
       const citas = await Citas.find();
