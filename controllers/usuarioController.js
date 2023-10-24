@@ -22,7 +22,8 @@ exports.login = async (req, res) => {
   }
   if (user.password === password) {
     const token = jwt.sign({ username }, 'secret_key');
-    return res.json({ token: "Se inicio sesión."});
+    const userId = user._id;
+    return res.json({ userId});
   } else {
     return res.status(401).json({ error: 'Contraseña incorrecta, ingrese la correcta.' });
   }
