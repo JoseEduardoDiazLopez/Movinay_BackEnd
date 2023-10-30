@@ -25,5 +25,6 @@ app.use('/api/denuncias', require('./routes/denuncia')); // Manda a llamar la AP
 app.put('/api/denuncias/:id', (req, res) => {console.log('req.params.id', req.params.id);});
 
 app.use('/api/autenticacion', require('./routes/usuario'));
+//app.put('/api/autenticacion/:id', (req, res) => {console.log('req.params.id', req.params.id);}); 
 
 app.listen(PORT, () => {console.log(`Server encendido en http://localhost:${PORT}`);});
