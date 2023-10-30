@@ -5,7 +5,7 @@ const CitaSchema = new mongoose.Schema({
     Hora: {type: String},
     Modulo: {type: String},
     TipoTramite: {type: String},
-    idUsuario: {type: Number},
+    idUsuario: {type: String},
     idOficina: {type: Number}
   });
   module.exports = mongoose.model('Cita', CitaSchema);
