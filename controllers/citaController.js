@@ -47,10 +47,26 @@ exports.obtenerCitaUsuario = async (req, res) => {
       return res.status(404).json({ msg: 'No se encontró la cita con el _id proporcionado.' });
     }
 
-    const idUsuario = cita.idUsuario;
-    res.json({ idUsuario }); // Retorna el valor de idUsuario de la cita encontrada
+    const idUsuario = cita.idUsuario; 
+    res.json({ idUsuario}); // Retorna el valor de idUsuario de la cita encontrada
   } catch (error) {
     console.log(error);
     res.status(500).send('[ERROR] No se pudo obtener la cita.');
   }
 }
+exports.obtenerCitasUsuario = async (req, res) => {
+  try {
+    const id = req.params.id; // Obtén el _id desde los parámetros de la solicitud
+    const cita = await Citas.find({ idUsuario: id });
+
+    if (!cita) {
+      return res.status(404).json({ msg: 'No se encontró la cita con el _id proporcionado.' });
+    }
+
+    res.json(cita); // Retorna todos los campos de la cita encontrada
+  } catch (error) {
+    console.log(error);
+    res.status(500).send('[ERROR] No se pudo obtener la cita.');
+  }
+}
+
