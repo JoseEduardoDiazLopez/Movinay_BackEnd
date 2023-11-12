@@ -69,4 +69,16 @@ exports.obtenerCitasUsuario = async (req, res) => {
     res.status(500).send('[ERROR] No se pudo obtener la cita.');
   }
 }
+exports.actualizarEstadoCita = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const estado = req.body.EstadoCita;
+
+    await Citas.findByIdAndUpdate(id, { EstadoCita: estado });
+    res.json({ message: 'Estado de cita actualizado correctamente' });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send('Error al actualizar el estado de la cita');
+  }
+};
 

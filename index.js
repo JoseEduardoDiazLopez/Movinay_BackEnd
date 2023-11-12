@@ -27,4 +27,7 @@ app.put('/api/denuncias/:id', (req, res) => {console.log('req.params.id', req.pa
 app.use('/api/autenticacion', require('./routes/usuario'));
 //app.put('/api/autenticacion/:id', (req, res) => {console.log('req.params.id', req.params.id);}); 
 
+app.use('/api/payment', require('./routes/pagos.js'));
+app.put('/api/payment/:id', (req, res) => {console.log('req.params.id', req.params.id);});
+
 app.listen(PORT, () => {console.log(`Server encendido en http://localhost:${PORT}`);});
