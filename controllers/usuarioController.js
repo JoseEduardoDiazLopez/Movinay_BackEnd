@@ -4,8 +4,8 @@ const jwt = require('jsonwebtoken');
 // Registro de usuario
 exports.register = async (req, res) => {
   try {
-    const { username, password, email,RFC,nombre,ApellidoPaterno,ApellidoMaterno, FechaNac} = req.body;
-    const user = new User({ username, password, email,RFC,nombre,ApellidoPaterno,ApellidoMaterno, FechaNac });
+    const { username, password, email, RFC, nombre, ApellidoPaterno, ApellidoMaterno, FechaNac } = req.body;
+    const user = new User({ username, password, email, RFC, nombre, ApellidoPaterno, ApellidoMaterno, FechaNac });
     await user.save();
     res.json({ message: 'Usuario registrado con éxito' });
   } catch (error) {
@@ -23,8 +23,23 @@ exports.login = async (req, res) => {
   if (user.password === password) {
     const token = jwt.sign({ username }, 'secret_key');
     const userId = user._id;
-    return res.json({ userId});
+    return res.json({ userId });
   } else {
     return res.status(401).json({ error: 'Contraseña incorrecta, ingrese la correcta.' });
+  }
+};
+// Obtener usuario por ID
+exports.getUserById = async (req, res) => {
+  try {
+    const userId = req.params.userId;
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({ message: 'Usuario no encontrado' });
+    }
+
+    res.json(user);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
   }
 };

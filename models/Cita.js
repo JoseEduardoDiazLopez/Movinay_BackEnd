@@ -6,7 +6,8 @@ const CitaSchema = new mongoose.Schema({
     Modulo: {type: String},
     TipoTramite: {type: String},
     idUsuario: {type: String},
-    EstadoCita: {type: String}
+    EstadoCita: {type: String},
+    Turno: {type:String}
   });
   CitaSchema.pre('save', async function (next) {
     const doc = this;
@@ -18,6 +19,10 @@ const CitaSchema = new mongoose.Schema({
             } else {
                 doc.idCita = 1; // Si no hay citas en la base de datos, empieza desde 1
             }
+            const year = new Date().getFullYear();
+            const randomNum = Math.floor(Math.random() * 100) + 1;
+            const randomLetter = String.fromCharCode(65 + Math.floor(Math.random() * 26));
+            doc.Turno = `${randomLetter}${randomLetter}${randomLetter}${year}${randomNum}`;
             doc.EstadoCita = "En proceso";
             next();
         } catch (error) {
