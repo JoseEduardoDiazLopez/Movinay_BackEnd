@@ -30,4 +30,7 @@ app.use('/api/autenticacion', require('./routes/usuario'));
 app.use('/api/payment', require('./routes/pagos.js'));
 app.put('/api/payment/:id', (req, res) => {console.log('req.params.id', req.params.id);});
 
-app.listen(PORT, () => {console.log(`Server encendido en http://localhost:${PORT}`);});
+app.use('/api/tramites', require('./routes/tramite.js'));
+app.put('/api/tramites/:id', (req, res) => {console.log('req.params.id', req.params.id);});
+
+app.listen(PORT, () => {console.log(`API REST MONGO | El servidor está encendido http://localhost:${PORT}`);});

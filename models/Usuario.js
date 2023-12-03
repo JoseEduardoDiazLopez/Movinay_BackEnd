@@ -8,7 +8,8 @@ const userSchema = new mongoose.Schema({
   nombre: String,
   ApellidoPaterno: String,
   ApellidoMaterno: String,
-  FechaNac : String
+  FechaNac : String,
+  Rol : String
 });
 
 module.exports = mongoose.model('User', userSchema);

@@ -3,20 +3,16 @@ const mongoose = require('mongoose');
 const PagosSchema = new mongoose.Schema({
     idPago : Number,
     idUsuario: String,
-    numReferencia: String,
+    TipoPago: String,
     Fecha: String,
-    Metodos: {
-        Tarjeta: {
-            Concepto: String,
-            Cantidad: String,
-            numTarjeta: String,
-            nombreTarjeta: String,
-            Fecha: String,
-            CVV: String
-        }
-    }
+    Concepto : String,
+    Cantidad : String,
+    numTarjeta : String,
+    nombreTarjeta : String,
+    FechaTarjeta : String,
+    CVV : String,
 });
-PagosSchema.pre('save', async function (next) {
+/*PagosSchema.pre('save', async function (next) {
     const doc = this;
 
     if (!doc.idPago) {
@@ -40,6 +36,6 @@ PagosSchema.pre('save', async function (next) {
     }
 
     next();
-});
+});*/
 
 module.exports = mongoose.model('Pagos', PagosSchema);
