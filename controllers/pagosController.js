@@ -73,7 +73,7 @@ exports.completarInformacionPago = async (req, res) => {
       // Guarda el pago actualizado en la base de datos
       const pagoActualizado = await ultimoPago.save();
   
-      const tipoTramite = req.body.Concepto; // Suponiendo que Concepto es el TipoTramite en la tabla Cita
+      const TipoTramite = req.body.Concepto; // Suponiendo que Concepto es el TipoTramite en la tabla Cita
       await Cita.deleteOne({ idUsuario, TipoTramite });
       
       res.json({ message: 'Información del pago actualizada correctamente', pago: pagoActualizado });
