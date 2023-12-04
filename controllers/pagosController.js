@@ -69,7 +69,7 @@ exports.completarInformacionPago = async (req, res) => {
       ultimoPago.nombreTarjeta = req.body.nombreTarjeta;
       ultimoPago.FechaTarjeta = req.body.FechaTarjeta;
       ultimoPago.CVV = req.body.CVV;
-  
+      ultimoPago.EstadoPago = req.body.EstadoPago;
       // Guarda el pago actualizado en la base de datos
       const pagoActualizado = await ultimoPago.save();
   

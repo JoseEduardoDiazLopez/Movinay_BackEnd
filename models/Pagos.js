@@ -11,6 +11,7 @@ const PagosSchema = new mongoose.Schema({
     nombreTarjeta : String,
     FechaTarjeta : String,
     CVV : String,
+    EstadoPago: String
 });
 /*PagosSchema.pre('save', async function (next) {
     const doc = this;
