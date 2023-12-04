@@ -11,6 +11,15 @@ exports.crearPago = async(req,res)=>{
         res.status(500).send('[ERROR] No se pudo insertar el pago.');
       }
 }
+exports.obtenerPagos = async (req,res) =>{
+  try{
+      const pagos = await Pagos.find();
+      res.json(pagos);
+  }catch(error){
+      console.log(error);
+      res.status(500).send('Hubo un error al obtener pagos.')
+  }
+}
 /*exports.obtenerPagoPorUsuarioId = async (req, res) => {
     const idUsuario = req.params.id; // Suponiendo que el ID del usuario está en los parámetros de la solicitud
 

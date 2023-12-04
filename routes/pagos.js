@@ -3,6 +3,7 @@ const router = express.Router();
 const pagosController = require('../controllers/pagosController.js');
 
 router.post('/', pagosController.crearPago); // Cargar dato
+router.get('/pagos',pagosController.obtenerPagos);
 router.get('/idUsuario/:id', pagosController.obtenerPagoPorUsuarioId); // Traer dato
 router.put('/finish-payment/:idUsuario', pagosController.completarInformacionPago);
 //router.put('/finish-payment/:idUsuario', pagosController.completarInformacionPago);
